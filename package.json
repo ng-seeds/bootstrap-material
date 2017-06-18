@@ -4,10 +4,11 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --extract-css --proxy-config=./proxy.conf.js -p 0",
+    "build": "ng build --extract-css -prod",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "ng lint \"src/**/*.ts\"",
+    "ci": "npm run lint && ng test --single-run",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -21,12 +22,16 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@ng-nice/mdbootstrap": "^4.3.201",
+    "angular-in-memory-web-api": "^0.3.2",
+    "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.1.1",
+    "@angular/cli": "git+https://github.com/asnowwolf/ng-cli-2.git#v1.1.1",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/language-service": "^4.0.0",
     "@types/jasmine": "2.5.45",
